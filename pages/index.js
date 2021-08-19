@@ -1,51 +1,59 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+
+import styles from '../styles/Home.module.css';
+import Layout from './components/Layout';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { getWhyNextReasons } from "../lib/api";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export default function Home({ reasons }) {
   return (
+    <Layout>
     <div className={styles.container}>
-      <Head>
-        <title>Tienda del Instituto Mexicano del Cemento y del Concreto A.C.</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
+      <Container>
         <h1 className={styles.title}>
-          Bienvenido al imcyc
+          Productos
         </h1>
+        <hr/>
+        <Row>
         {reasons
           .slice(0, reasons.length - 1)
           .map(({ title, description, href }) => (
-            <a
-              key={title}
-              href={href}
-              target="_blank"
-            >
-              <h3 className="font-bold mb-2">{title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: description }} />
-              <span className="text-blue-600 hover:text-blue-400 hover:underline mt-4 block">
-                Documentation →
-              </span>
-            </a>
+            <Col sm={3} className="mb-3">
+              <Card>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                  <Card.Title>{title}</Card.Title>
+                  <Card.Text>
+                    <a
+                      key={title}
+                      href={href}
+                      target="_blank"
+                    >
+                      <h3 className="font-bold mb-2">{title}</h3>
+                      <div dangerouslySetInnerHTML={{ __html: description }} />
+                      <span className="text-blue-600 hover:text-blue-400 hover:underline mt-4 block">
+                        Documentation →
+                      </span>
+                    </a>
+                  </Card.Text>
+                  <Button variant="primary">VER DETALLES</Button>
+                </Card.Body>
+              </Card>
+            </Col>
           ))}
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="http://www.imcyc.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ® 2021 Instituto Mexicano del Cemento y del Concreto A.C.
-        </a>
-      </footer>
+          </Row>
+      </Container>
     </div>
+    </Layout>
   )
 }
 
 export async function getStaticProps(context) {
   const reasons = await getWhyNextReasons();
-  
+
   return {
     props: {
       reasons,
