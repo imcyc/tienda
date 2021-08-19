@@ -12,7 +12,7 @@ export default function Home({ reasons }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Bienvenido al imcyc
         </h1>
         {reasons
           .slice(0, reasons.length - 1)
