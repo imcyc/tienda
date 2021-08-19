@@ -6,7 +6,7 @@ export default function Home({ reasons }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Tienda del Instituto Mexicano del Cemento y del Concreto A.C.</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
