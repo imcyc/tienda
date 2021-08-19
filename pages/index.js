@@ -14,16 +14,16 @@ export default function Home({ reasons }) {
     <div className={styles.container}>
       <Container>
         <h1 className={styles.title}>
-          Productos
+          PRODUCTOS
         </h1>
         <hr/>
         <Row>
         {reasons
           .slice(0, reasons.length - 1)
-          .map(({ title, description, href }) => (
+          .map(({ title, description, href, image }) => (
             <Col sm={3} className="mb-3">
               <Card>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={image} />
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>
