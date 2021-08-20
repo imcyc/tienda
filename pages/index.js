@@ -20,12 +20,12 @@ export default function Home({ reasons }) {
         <Row>
         {reasons
           .slice(0, reasons.length - 1)
-          .map(({ title, description, href, image }) => (
+          .map(({ title, description, href, image, precio }) => (
             <Col sm={3} className="mb-3">
               <Card>
                 <Card.Img variant="top" src={image} />
                 <Card.Body>
-                  <Card.Title>{title}</Card.Title>
+                  <Card.Title>$ {precio}.00 + IVA</Card.Title>
                   <Card.Text>
                     <a
                       key={title}
