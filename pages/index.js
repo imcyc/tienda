@@ -13,9 +13,6 @@ export default function Home({ reasons }) {
     <Layout>
     <div className={styles.container}>
       <Container>
-        <h1 className={styles.title}>
-          PRODUCTOS
-        </h1>
         <hr/>
         <Row>
         {reasons
