@@ -8,7 +8,7 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        ® 2021 Instituto Mexicano del Cemento y del Concreto A.C.
+        ® 2021 Instituto Mexicano del Cemento y del Concreto, A.C.
       </a>
     </footer>
   )
